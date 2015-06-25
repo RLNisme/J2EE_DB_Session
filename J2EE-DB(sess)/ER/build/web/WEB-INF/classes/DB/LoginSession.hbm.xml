@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 2, 2014 10:50:08 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="DB.LoginSession" table="login_session" catalog="erprac2">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userLogin" class="DB.UserLogin" fetch="select">
+            <column name="user_login_id" not-null="true" />
+        </many-to-one>
+        <property name="ipAddress" type="string">
+            <column name="ip_address" length="45" not-null="true" />
+        </property>
+        <property name="inTime" type="date">
+            <column name="in_time" length="10" not-null="true" />
+        </property>
+        <property name="outTime" type="date">
+            <column name="out_time" length="10" not-null="true" />
+        </property>
+        <set name="sessionActivitieses" table="session_activities" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="login_session_id" not-null="true" />
+            </key>
+            <one-to-many class="DB.SessionActivities" />
+        </set>
+    </class>
+</hibernate-mapping>

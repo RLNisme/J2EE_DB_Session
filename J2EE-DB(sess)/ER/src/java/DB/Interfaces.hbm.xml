@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 2, 2014 10:50:08 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="DB.Interfaces" table="interfaces" catalog="erprac2">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="url" type="string">
+            <column name="url" length="45" not-null="true" />
+        </property>
+        <property name="displayName" type="string">
+            <column name="display_name" length="45" not-null="true" />
+        </property>
+        <set name="privilages" table="privilage" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="interfaces_id" not-null="true" />
+            </key>
+            <one-to-many class="DB.Privilage" />
+        </set>
+    </class>
+</hibernate-mapping>

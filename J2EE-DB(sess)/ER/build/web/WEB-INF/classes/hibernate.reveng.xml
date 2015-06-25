@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="erprac2"/>
+  <table-filter match-name="privilage"/>
+  <table-filter match-name="user_type"/>
+  <table-filter match-name="user_login"/>
+  <table-filter match-name="interfaces"/>
+  <table-filter match-name="session_activities"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="login_session"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 2, 2014 10:50:08 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="DB.User" table="user" catalog="erprac2">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userType" class="DB.UserType" fetch="select">
+            <column name="user_type_id" not-null="true" />
+        </many-to-one>
+        <property name="UName" type="string">
+            <column name="u_name" length="45" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" not-null="true" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="45" not-null="true" />
+        </property>
+        <set name="userLogins" table="user_login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="DB.UserLogin" />
+        </set>
+    </class>
+</hibernate-mapping>
